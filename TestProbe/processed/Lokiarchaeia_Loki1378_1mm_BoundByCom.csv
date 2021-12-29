@@ -1,0 +1,4 @@
+job_name,primaryAccession,seqent_id,path,organismName,length,startPosition,stopPosition,mismatch,mismatchWeight,alignmentPosition,ecoliPosition,matchDirection,sequenceMatch,taxonomy
+LOK1378_1mm,AB750600,135681,Archaea;Asgardarchaeota;Lokiarchaeia;,uncultured archaeon,1280,1,1280,1,1.1,41565,1377,rev,CGGUGAAUA-==================U=-ACCGCCCGU,Archaea;Asgardarchaeota;Lokiarchaeia;uncultured archaeon
+LOK1378_1mm,EU731801,976552,Archaea;Asgardarchaeota;Lokiarchaeia;,uncultured crenarchaeote,1351,1,1351,1,1.1,41565,1377,rev,CGGUGAAUA-==================U=-ACCGCCCGU,Archaea;Asgardarchaeota;Lokiarchaeia;uncultured crenarchaeote
+LOK1378_1mm,JQ225940,3729608,Archaea;Asgardarchaeota;Lokiarchaeia;,uncultured marine archaeon,1371,1,1371,1,1.1,41565,1377,rev,CGGUGAAUA-==================U=-ACCGCCCGU,Archaea;Asgardarchaeota;Lokiarchaeia;uncultured marine archaeon
