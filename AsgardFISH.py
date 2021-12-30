@@ -317,28 +317,7 @@ def create_subfasta_from_proc_target_accessions(taxStr,probename,targetFastaAsLi
     
 ###body###
 
-##data set one - All Asgards
-
-AsgSILVA138Fasta=root+"/SILVA138_refNR/searchresults/arb-silva.de_2021-10-27_id1073117_withoutgaps_Asgardarchaeota.fasta"
-Asg512_1mm=pd.read_csv(root+"/TestProbe/searchresults/arb-silva.de_testprobe_hitlist_1053231_ Asg512_1mm.csv",delimiter=";")
-Asg512Pr="CGGCGGCTGGCACCAG"
-Asg512Cp="CGGCGGCTGACACCAG" #competitor
-
-AsgardarchaeotaUniqueAcc,AsgardarchaeotaFastaAsList=run_fasta_target_analysis("Asgardarchaeota",AsgSILVA138Fasta,retAcc=True,retFastaAsList=True)
-notAsgardarchaeotaPreComp,AsgardarchaeotaPreComp,notAsgardarchaeotaPostComp,AsgardarchaeotaPostComp=run_full_testprobe_analysis_phase1(Asg512_1mm,"Asgardarchaeota","Asg512",Asg512Pr,[Asg512Cp])
-calculate_coverage_specificity(AsgardarchaeotaPreComp,notAsgardarchaeotaPreComp,AsgardarchaeotaUniqueAcc,"Asgardarchaeota","Asg512",AsgardarchaeotaPostComp,notAsgardarchaeotaPostComp,exp=True)
-create_subfasta_from_proc_target_accessions("Asgardarchaeota","Asg512",AsgardarchaeotaFastaAsList)
-
-#data set two- all Asgards
-Asg517new_1mm=pd.read_csv(root+"/TestProbe/searchresults/arb-silva.de_testprobe_hitlist_1050001_Asgard517new_1mm.csv",delimiter=";")
-Asg517newPr="GGTTTTACCGCGGCGGCTGGC"
-Asg517newCp="GGTATTACCGCGGCGGCTGAC" #competitor
-
-notAsgardarchaeotaPreComp2,AsgardarchaeotaPreComp2,notAsgardarchaeotaPostComp2,AsgardarchaeotaPostComp2=run_full_testprobe_analysis_phase1(Asg517new_1mm,"Asgardarchaeota","Asg517new",Asg517newPr,[Asg517newCp])
-calculate_coverage_specificity(AsgardarchaeotaPreComp2,notAsgardarchaeotaPreComp2,AsgardarchaeotaUniqueAcc,"Asgardarchaeota","Asg517new",AsgardarchaeotaPostComp2,notAsgardarchaeotaPostComp2,exp=True)
-create_subfasta_from_proc_target_accessions("Asgardarchaeota","Asg517new",AsgardarchaeotaFastaAsList)
-
-##data set three- all Loki
+##data set one- all Loki
 
 LokiSILVA138Fasta=root+"/SILVA138_refNR/searchresults/arb-silva.de_2021-10-27_id1073105_withoutgaps_Lokiarchaeia.fasta"
 Loki1378_1mm=pd.read_csv(root+"/TestProbe/searchresults/arb-silva.de_testprobe_hitlist_1048769_LOK1378_1mm.csv",delimiter=";")
@@ -352,7 +331,7 @@ notLokiarchaeiaPreComp,lokiarchaeaPreComp,notLokiarchaeiaPostComp,lokiarchaeiaPo
 calculate_coverage_specificity(lokiarchaeaPreComp,notLokiarchaeiaPreComp,lokiarchaeiaUniqueAcc,"Lokiarchaeia","Loki1378",lokiarchaeiaPostComp,notLokiarchaeiaPostComp,exp=True,ret=False)
 create_subfasta_from_proc_target_accessions("Lokiarchaeia","Loki1378",lokiarchaeiaFastaAsList)
 
-##data set four- Loki clade A
+##data set two- Loki clade A
 ##
 Loki1183_1mm=pd.read_csv(root+"/TestProbe/searchresults/arb-silva.de_testprobe_hitlist_1048765_LOK1183_1mm.csv",delimiter=";")
 Loki1183Pr="CTGACCTGCCTTTGCCCGCT"
@@ -362,26 +341,7 @@ notLokiarchaeiaAPreComp,lokiarchaeaAPreComp,notLokiarchaeiaAPostComp,lokiarchaei
 calculate_coverage_specificity(lokiarchaeaAPreComp,notLokiarchaeiaAPreComp,lokiarchaeiaUniqueAcc,"Lokiarchaeia_A","Loki1183",lokiarchaeiaAPostComp,notLokiarchaeiaAPostComp,exp=True,ret=False)
 create_subfasta_from_proc_target_accessions("Lokiarchaeia","Loki1183",lokiarchaeiaFastaAsList)
 
-##data set five-Odinarchaeia
-OdinSILVA138Fasta=root+"/SILVA138_refNR/searchresults/arb-silva.de_2021-10-27_id1073099_withoutgaps_Odinarchaeia.fasta"
-Odin1280_1mm=pd.read_csv(root+"/TestProbe/searchresults/arb-silva.de_testprobe_hitlist_1073065_Odin1280_1mm.csv",delimiter=";")
-Odin1280Pr="TCCCAACCGAGACTAGGT"
-
-
-odinarchaeiaUniqueAcc,odinarchaeiaFastaAsList=run_fasta_target_analysis("Odinarchaeia",OdinSILVA138Fasta,retAcc=True,retFastaAsList=True)
-notOdinarchaeiaPreComp,OdinarchaeiaPreComp=run_full_testprobe_analysis_phase1(Odin1280_1mm,"Odinarchaeia","Odin1280",Odin1280Pr,comps=False)
-calculate_coverage_specificity(OdinarchaeiaPreComp,notOdinarchaeiaPreComp,odinarchaeiaUniqueAcc,"Odinarchaeia","Odin1280",exp=True,ret=False)
-create_subfasta_from_proc_target_accessions("Odinarchaeia","Odin1280",odinarchaeiaFastaAsList,compStr="")
-
-##data set six-Odinarchaeia
-Odin622_1mm=pd.read_csv(root+"/TestProbe/searchresults/arb-silva.de_testprobe_hitlist_1073107_Odin622_1mm.csv",delimiter=";")
-Odin622Pr="CCTCAGCAAGCCGACAGT"
-
-notOdinarchaeiaPreComp2,OdinarchaeiaPreComp2=run_full_testprobe_analysis_phase1(Odin622_1mm,"Odinarchaeia","Odin622",Odin622Pr,comps=False)
-calculate_coverage_specificity(OdinarchaeiaPreComp2,notOdinarchaeiaPreComp2,odinarchaeiaUniqueAcc,"Odinarchaeia","Odin622",exp=True,ret=False)
-create_subfasta_from_proc_target_accessions("Odinarchaeia","Odin622",odinarchaeiaFastaAsList,compStr="")
-
-#data set seven- Heimdallarchaeia
+#data set three- Heimdallarchaeia
 HeimdalSILVA138Fasta=root+"/SILVA138_refNR/searchresults/arb-silva.de_2021-12-07_id1092153_withoutgaps_Heimdallarchaeia.fasta"
 Heim329_1mm=pd.read_csv(root+"/TestProbe/searchresults/arb-silva.de_testprobe_hitlist_1048771_ HEIM329_1mm.csv",delimiter=";")
 Heim329Pr="GCACTCGCAGAGCTGGTTTTACC"
